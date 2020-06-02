@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>P6 galeria</title>
+
+<style type="text/css">
+	<!--
+	body,td,th {
+		color: #000000;
+	}
+	body {
+		background-color: #009999;
+	}
+	-->
+</style>
+
+</head>
+	<body>
+
+	<form id="form1" name="form1" method="post" action="">
+				<h1 align="center">Galeria de imagenes </h1>
+	</form>
+
+		<div align="center">
+		<img src= "mioimages/1.jpg" alt="1" width="800" height="600" /> </div>
+			<center>  	
+				<button onCLick = "primeraImagen()"> Primera Imagen</button>  &nbsp; 
+				<button onClick = "siguienteImagen()">Siguiente Imagen</button>&nbsp;
+				<button onClick = "imagenAnterior()">Imagen Anterior</button>&nbsp;
+				<button onClick = "ultima()">Ultima Imagen</button>&nbsp;
+				<!--Para agregar espacio es el  &nbsp; -->
+			</center>           
+	</body>	
+</html>
+
+<script type="text/javascript">
+	
+	function primeraImagen(){
+		document.images [0].src = "mioimages/1.jpg";
+		
+	}
+	var i = 1;
+	function siguienteImagen(){
+		i++;
+		document.images [0].src = "mioimages/"+i+".jpg";
+			if (i == 20){
+				i = 1;
+			}
+	}
+	function imagenAnterior(){
+		i--;
+		document.images [0].src = "mioimages/"+i+".jpg";
+		if (i == 1){
+			i = 19;
+		}
+	}
+	
+	function ultima(){
+		document.images [0].src = "mioimages/20.jpg";
+		}
+
+</script>

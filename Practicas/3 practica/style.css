@@ -1,0 +1,5 @@
+input[type=text]:focus {
+	background-color: #99FFFF;
+    width: 250px;
+    height: 22px;
+}

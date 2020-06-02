@@ -1,0 +1,76 @@
+function setCookie(cname, cvalue, exdays){
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires = " + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+
+function getCookie(cname){
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i < ca.length; i++){
+        var c = ca[i];
+        while(c.charAt(0) == ' ') c = c.substring(1);
+        if(c.indexOf(name) == 0) return unescape(c.substring(name.length, c.length));
+    }
+    return "";
+}
+
+function startCookie(){
+    var nombreUsuario = document.formulario.name.value;
+    var apellidoP = document.formulario.apellidoP.value;
+    var apellidoM = document.formulario.apellidoM.value;
+    var nombreCalle = document.formulario.calle.value;
+    var numeroDir = document.formulario.numeroDir.value;
+    var colonia = document.formulario.colonia.value;
+    var CP = document.formulario.CP.value;
+    var ciudad = document.formulario.ciudad.value;
+    var sexo = document.formulario.sexo.value;
+    var numeroNacimiento = document.formulario.numeroNacimiento.value;
+    var mesNacimiento = document.formulario.mesNacimiento.value;
+    var anioNacimiento = document.formulario.anioNacimiento.value;
+    var curp = document.formulario.curp.value;
+    var lenguajeProgramacion = document.formulario.lenguajeProgramacion.value;
+    var pasatiempos = document.formulario.pasatiempos.value;
+    var comentario = document.formulario.comentario.value;
+
+    setCookie("nombreUsuario", nombreUsuario, 2);
+    setCookie("apellidoP", apellidoP, 2);
+    setCookie("apellidoM", apellidoM, 2);
+    setCookie("calle", nombreCalle, 2);
+    setCookie("numeroDir", numeroDir, 2);
+    setCookie("colonia", colonia, 2);
+    setCookie("CP", CP, 2);
+    setCookie("ciudad", ciudad, 2);
+    setCookie("sexo", sexo, 2);
+    setCookie("numeroNacimiento", numeroNacimiento, 2);
+    setCookie("mesNacimiento", mesNacimiento, 2);
+    setCookie("anioNacimiento", anioNacimiento, 2);
+    setCookie("curp", curp, 2);
+    setCookie("lenguajeProgramacion", lenguajeProgramacion, 2);
+    setCookie("pasatiempos", pasatiempos, 2);
+    setCookie("comentario", comentario, 2);
+}
+
+function readCookie(){
+    var c1 = getCookie("nombreUsuario");
+    var c2 = getCookie("apellidoP");
+    var c3 = getCookie("apellidoM");
+    var c4 = getCookie("calle");
+    var c5 = getCookie("numeroDir");
+    var c6 = getCookie("colonia");
+    var c7 = getCookie("CP");
+    var c8 = getCookie("ciudad");
+    var c9 = getCookie("sexo");
+    var c10 = getCookie("numeroNacimiento");
+    var c11 = getCookie("mesNacimiento");
+    var c12 = getCookie("anioNacimiento");
+    var c13 = getCookie("curp");
+    var c14 = getCookie("lenguajeProgramacion");
+    var c15 = getCookie("pasatiempos");
+    var c16 = getCookie("comentario");
+    
+    
+    alert("Funcion read: " + c1 + ", " + c2 + ", " + c3 + ", " + c4 + ", " + c5 + ", " + c6 + ", " + c7 + ", " + c8 + ", " + c9 + ", " + c10 + ", " + c11 + ", " + c12 + ", " + c13 + ", " + c14 + ", " + c15 + ", " + c16);
+}
+El almacenamiento web es por origen (por dominio y protocolo). Todas las páginas, desde un origen, pueden almacenar y acceder a los mismos datos.
