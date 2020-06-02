@@ -1,0 +1,158 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package afd;
+import java.util.Scanner;
+
+/**
+ *
+ * @author cat-b
+ */
+public class AFD {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        AFD automata = new AFD(); 
+        int h;
+        String cadena;
+        Scanner scan = new Scanner(System.in);
+        System.out.println("\n\n AFD");
+        System.out.println("\n Ingrese una expresion");
+        
+        cadena = scan.nextLine();
+        //numerosReales(cadena);
+        h = numerosReales(cadena);
+        System.out.println(h);
+        if (h != 0){
+             automata.analizarPunto(cadena, h);
+        }
+        else{
+            System.out.println("cadena no aceptada---");
+        }
+    }
+    
+    public static int numerosReales(String expre){  
+        String aux;
+        int digitoASCII;
+        boolean flag = true;
+        int i = 0;
+       // for(int i = 0; i <= (expre.length()) - 1; i++){
+        while(flag = true){    
+            if (i < expre.length()) {
+		aux = expre.substring(i, (i + 1));	
+            }else{
+                aux = expre.substring(i);
+            }
+            
+            digitoASCII = aux.codePointAt(0);
+            
+            if (digitoASCII >= 48 && digitoASCII <= 57) {
+                i++;
+            } else{
+		flag = false;
+                break;
+            }
+            if (i == expre.length()){
+                flag = false;
+                i = 0;
+                break;
+            }
+        }
+        /*if (i != 0){
+            System.out.println("Melisa");
+            analizarPunto(expre, i); 
+        }*/
+        return i;        
+    }
+    
+    public static void analizarPunto(String cadenaIngresada, int numeroEncontrado){
+        String caracter;
+        caracter = cadenaIngresada.substring(numeroEncontrado, (numeroEncontrado + 1));
+        int convertido = caracter.codePointAt(0);
+        int caracterConvertido;
+        boolean bandera = false;
+        
+        switch(convertido){
+            case 46:
+                int longitudCadena = cadenaIngresada.length();
+                int auxiliar = (numeroEncontrado + 1);
+                
+                for(int i = (numeroEncontrado + 1); i < longitudCadena; i++) {
+                    if (i < cadenaIngresada.length()) {
+                        caracter = cadenaIngresada.substring(i, (i + 1));	
+                    }else{
+                        caracter = cadenaIngresada.substring(i);           
+                    }
+                    caracterConvertido = caracter.codePointAt(0);
+                    if(caracterConvertido >= 48 && caracterConvertido <= 57){
+                        auxiliar++;
+                        bandera = true;
+                        
+                    }else{
+                        
+                        System.out.println("No es aceptada la cadena, error en el indice: " + auxiliar);
+                        bandera = false;
+                        break;                   
+                    }
+                    if (auxiliar == (cadenaIngresada.length()) && bandera == true){
+                        System.out.println("Cadena aceptada");
+                    }
+                }
+                break;
+            case 69:
+                longitudCadena = cadenaIngresada.length();
+                auxiliar = (numeroEncontrado + 1);
+                
+                
+                if()
+                
+                for(int i = (numeroEncontrado +1); i < longitudCadena; i++) {
+                    if (i < cadenaIngresada.length()) {
+                        caracter = cadenaIngresada.substring(i, (i + 1));	
+                    }else{
+                        caracter = cadenaIngresada.substring(i);           
+                    }
+                    caracterConvertido = caracter.codePointAt(0);
+                    if(caracterConvertido >= 48 && caracterConvertido <= 57){
+                        auxiliar++;
+                        bandera = true;
+                        
+                    }else if(caracterConvertido == 45 || caracterConvertido == 43){
+                        for(int j = (i +1); j < longitudCadena; j++) {
+                            if (j < cadenaIngresada.length()) {
+                                caracter = cadenaIngresada.substring(j, (j + 1));	
+                            }else{
+                                caracter = cadenaIngresada.substring(j);           
+                            }
+                            caracterConvertido = caracter.codePointAt(0);
+                            if (caracterConvertido >= 48 && caracterConvertido <= 57){
+                                bandera = true;
+                                auxiliar ++ ;
+                            }else{
+                                System.out.println("No es aceptada la cadena, error en el indice: " + auxiliar);
+                                bandera = false;
+                                break;
+                            }
+                        }    
+                    }
+                    if (auxiliar == (cadenaIngresada.length()) && bandera == true){
+                        System.out.println("Cadena aceptada");
+                    }
+                }
+                break; 
+            default:
+                System.out.println("Cadena no aceptada :s");
+        }
+    }
+}
+
+
+
+
+http://puraslineas.com/2011/08/11/analizador-lexico/comment-page-4/#comments
